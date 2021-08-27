@@ -6,17 +6,20 @@ import Action from './Action'
 import Options from './Options'
 import OptionModal from './OptionModal'
 
-class IndecisionApp extends React.Component {
-    state = {
-        options: [],
-        selectedOption: undefined
-    }
+const IndecisionApp = () => {
 
-    handleDeleteOptions = () => {
+    const [options, setOptions] = useState([])
+    const [selectedOption, setSelectedOption] = useState(undefined)
+    // state = {
+    //     options: [],
+    //     selectedOption: undefined
+    // }
+
+   const handleDeleteOptions = () => {
         this.setState(() => ({ options: [] })) //we use parenthesis around brackets for the short hand arrow method, or else the function will assume we are scoping
     }
 
-    handleDeleteOption = (optionToDelete) => {
+    const handleDeleteOption = (optionToDelete) => {
         this.setState((prevState) => ({
             options: prevState.options.filter(
                 (option) => optionToDelete !== option   //if the option is not the same as optionToDelete, store in options
@@ -25,7 +28,7 @@ class IndecisionApp extends React.Component {
         //changed option argument to optionToDelete to differentiate the variables
     }
 
-    handlePick = () => {
+    const handlePick = () => {
         const randomNum = Math.floor(Math.random() * this.state.options.length) //has to be same length as array
         const option = this.state.options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
         console.log(option)
@@ -35,11 +38,11 @@ class IndecisionApp extends React.Component {
         }))
     }
 
-    handleDeleteModalOption = () => {
+    const handleDeleteModalOption = () => {
         this.setState(() => ({ selectedOption: undefined }))
     }
 
-    handleAddOption = (option) => {
+    const handleAddOption = (option) => {
         if (!option) {
             return 'Enter valid value to return item'
         } else if (this.state.options.indexOf(option) > -1) {
@@ -73,11 +76,13 @@ class IndecisionApp extends React.Component {
         //if new options are set in options array, take new items and store in localStorage
     }
 
-    render() {
-        const subtitle = 'Put your life in the hands of a computer'
+    const subtitle = 'Put your life in the hands of a computer'
+        
 
-        return (
-            <div>
+    return (
+            
+        <div>
+            
                 <Header subtitle={subtitle} />
                 <div className="container">
                     <Action
@@ -100,7 +105,7 @@ class IndecisionApp extends React.Component {
                 />
             </div>
         )
-    }
+    
 }
 
 export default IndecisionApp
