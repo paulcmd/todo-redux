@@ -52,6 +52,8 @@ const IndecisionApp = () => {
             //checks for a duplicate
             return 'This item already exists'
         }
+
+
         // this.setState((prevState) => ({
         //     options: prevState.options.concat(option)
         // }))
@@ -59,7 +61,16 @@ const IndecisionApp = () => {
     }
 
     useEffect(() => {
+    try {
+            const jsonOptions = localStorage.getItem('options')
+            const options = JSON.parse(jsonOptions)
 
+            if (options) {
+                this.setState(() => ({ options })) //i.e setting options: options
+            }
+        } catch (err) {
+            //if error, do nothing at all. fall back to default values
+        }
     })
 
     // componentDidMount() {
@@ -83,7 +94,7 @@ const IndecisionApp = () => {
         //if new options are set in options array, take new items and store in localStorage
     }
 
-    const subtitle = 'Put your life in the hands of a computer'
+    const subtitle = 'What would you like to do today?'
         
 
     return (
