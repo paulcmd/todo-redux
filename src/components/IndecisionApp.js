@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import AddOption from './AddOption'
 import Header from './Header'
@@ -15,8 +15,9 @@ const IndecisionApp = () => {
     //     selectedOption: undefined
     // }
 
-   const handleDeleteOptions = () => {
-        this.setState(() => ({ options: [] })) //we use parenthesis around brackets for the short hand arrow method, or else the function will assume we are scoping
+    const handleDeleteOptions = () => {
+       setOptions([])
+        // this.setState(() => ({ options: [] })) //we use parenthesis around brackets for the short hand arrow method, or else the function will assume we are scoping
     }
 
     const handleDeleteOption = (optionToDelete) => {
@@ -33,13 +34,15 @@ const IndecisionApp = () => {
         const option = this.state.options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
         console.log(option)
         
-        this.setState(() => ({
-            selectedOption: option
-        }))
+        setSelectedOption(option)
+        // this.setState(() => ({
+        //     selectedOption: option
+        // }))
     }
 
     const handleDeleteModalOption = () => {
-        this.setState(() => ({ selectedOption: undefined }))
+        setSelectedOption(undefined)
+        // this.setState(() => ({ selectedOption: undefined }))
     }
 
     const handleAddOption = (option) => {
@@ -49,24 +52,28 @@ const IndecisionApp = () => {
             //checks for a duplicate
             return 'This item already exists'
         }
-        this.setState((prevState) => ({
-            options: prevState.options.concat(option)
-        }))
+        // this.setState((prevState) => ({
+        //     options: prevState.options.concat(option)
+        // }))
         //prevState.options.push(option); do not manipulate state manually. deconstruct and concat
     }
 
-    componentDidMount() {
-        try {
-            const jsonOptions = localStorage.getItem('options')
-            const options = JSON.parse(jsonOptions)
+    useEffect(() => {
 
-            if (options) {
-                this.setState(() => ({ options })) //i.e setting options: options
-            }
-        } catch (err) {
-            //if error, do nothing at all. fall back to default values
-        }
-    }
+    })
+
+    // componentDidMount() {
+    //     try {
+    //         const jsonOptions = localStorage.getItem('options')
+    //         const options = JSON.parse(jsonOptions)
+
+    //         if (options) {
+    //             this.setState(() => ({ options })) //i.e setting options: options
+    //         }
+    //     } catch (err) {
+    //         //if error, do nothing at all. fall back to default values
+    //     }
+    // }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.options.length !== this.state.options.length) {
@@ -87,15 +94,15 @@ const IndecisionApp = () => {
                 <div className="container">
                     <Action
                         hasOptions={this.state.options.length > 1}
-                        handlePick={this.handlePick}
+                        handlePick={handlePick}
                     />
                     <div className="widget">
                         <Options
                             options={this.state.options}
-                            handleDeleteOptions={this.handleDeleteOptions}
-                            handleDeleteOption={this.handleDeleteOption}
+                            handleDeleteOptions={handleDeleteOptions}
+                            handleDeleteOption={handleDeleteOption}
                         />
-                        <AddOption handleAddOption={this.handleAddOption} 
+                        <AddOption handleAddOption={handleAddOption} 
                         />
                     </div>
                 </div>
