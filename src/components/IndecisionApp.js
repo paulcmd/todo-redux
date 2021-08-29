@@ -25,9 +25,9 @@ const IndecisionApp = () => {
 
         // map thru options
 
-        const options2 = options.filter((option) => optionToDelete !== option)
+        const optionsAfterDeleting = options.filter((option) => optionToDelete !== option)
         
-        setOptions(options2)
+        setOptions(optionsAfterDeleting)
         
         // this.setState((prevState) => ({
         //     options: prevState.options.filter(
