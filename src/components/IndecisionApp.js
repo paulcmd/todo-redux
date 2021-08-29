@@ -10,6 +10,7 @@ const IndecisionApp = () => {
 
     const [options, setOptions] = useState([])
     const [selectedOption, setSelectedOption] = useState([])
+    console.log('Options from Indecision : ', options)
     // state = {
     //     options: [],
     //     selectedOption: undefined
@@ -60,7 +61,7 @@ const IndecisionApp = () => {
             return 'This item already exists'
         }
         
-        setOptions(...options, option)
+        setOptions(options.concat(option))
 
         // this.setState((prevState) => ({
         //     options: prevState.options.concat(option)
