@@ -34,8 +34,8 @@ const IndecisionApp = () => {
     }
 
     const handlePick = () => {
-        const randomNum = Math.floor(Math.random() * this.state.options.length) //has to be same length as array
-        const option = this.state.options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
+        const randomNum = Math.floor(Math.random() * options.length) //has to be same length as array
+        const option = options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
         console.log(option)
         
         setSelectedOption(option)
@@ -108,7 +108,7 @@ const IndecisionApp = () => {
                 <Header subtitle={subtitle} />
                 <div className="container">
                     <Action
-                        hasOptions={this.state.options.length > 1}
+                        hasOptions={options.length > 1}
                         handlePick={handlePick}
                     />
                     <div className="widget">
