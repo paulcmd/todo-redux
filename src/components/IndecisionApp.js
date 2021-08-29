@@ -25,9 +25,9 @@ const IndecisionApp = () => {
 
         // map thru options
 
-        const options = options.filter((option) => optionToDelete !== option)
+        const options2 = options.filter((option) => optionToDelete !== option)
         
-        setOptions(options)
+        setOptions(options2)
         
         // this.setState((prevState) => ({
         //     options: prevState.options.filter(
@@ -61,7 +61,7 @@ const IndecisionApp = () => {
             return 'This item already exists'
         }
         
-        setOptions(options.concat(option))
+        setOptions([...options, option])
 
         // this.setState((prevState) => ({
         //     options: prevState.options.concat(option)
