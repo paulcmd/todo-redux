@@ -9,7 +9,7 @@ import OptionModal from './OptionModal'
 const IndecisionApp = () => {
 
     const [options, setOptions] = useState([])
-    const [selectedOption, setSelectedOption] = useState(undefined)
+    const [selectedOption, setSelectedOption] = useState([])
     // state = {
     //     options: [],
     //     selectedOption: undefined
@@ -59,7 +59,8 @@ const IndecisionApp = () => {
             //checks for a duplicate
             return 'This item already exists'
         }
-
+        
+        setOptions(...options, option)
 
         // this.setState((prevState) => ({
         //     options: prevState.options.concat(option)
@@ -76,7 +77,7 @@ const IndecisionApp = () => {
         } catch (err) {
             //if error, do nothing at all. fall back to default values
         }
-    })
+    },[])
 
     // componentDidMount() {
     //     try {
@@ -91,6 +92,10 @@ const IndecisionApp = () => {
     //     }
     // }
 
+    useEffect(() => {
+        const jsonOptions = JSON.stringify(options)
+        localStorage.setItem('options', jsonOptions)
+    },[options])
     // componentDidUpdate(prevProps, prevState) {
     //     if (prevState.options.length !== this.state.options.length) {
     //         const jsonOptions = JSON.stringify(this.state.options)

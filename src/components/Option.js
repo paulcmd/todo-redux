@@ -8,7 +8,7 @@ const Option = ({ count, optionText, handleDeleteOption }) => (
 
         <button
             className="button button--link"
-            onClick={(e) => {
+            onClick={() => {
                 handleDeleteOption(optionText)
             }}
         >
