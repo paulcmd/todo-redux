@@ -21,11 +21,15 @@ const IndecisionApp = () => {
     }
 
     const handleDeleteOption = (optionToDelete) => {
-        this.setState((prevState) => ({
-            options: prevState.options.filter(
-                (option) => optionToDelete !== option   //if the option is not the same as optionToDelete, store in options
-            )
-        }))
+
+        // map thru options
+
+        return options.map((option) => optionToDelete !== option)
+        // this.setState((prevState) => ({
+        //     options: prevState.options.filter(
+        //         (option) => optionToDelete !== option   //if the option is not the same as optionToDelete, store in options
+        //     )
+        // }))
         //changed option argument to optionToDelete to differentiate the variables
     }
 
@@ -109,7 +113,7 @@ const IndecisionApp = () => {
                     />
                     <div className="widget">
                         <Options
-                            options={this.state.options}
+                            options={options}
                             handleDeleteOptions={handleDeleteOptions}
                             handleDeleteOption={handleDeleteOption}
                         />
