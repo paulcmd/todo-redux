@@ -8,7 +8,7 @@ const AddOption = ({ handleAddOption }) => {
         e.preventDefault()
 
         const option = e.target.elements.option.value.trim() //trim spaces before and after text. also doesn't display empty strings
-        const error = this.props.handleAddOption(option)
+        const error = props.handleAddOption(option)
         //we are passing option to the handleAddOption in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
 
         setError(error)

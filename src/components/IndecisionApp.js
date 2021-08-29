@@ -24,7 +24,10 @@ const IndecisionApp = () => {
 
         // map thru options
 
-        return options.map((option) => optionToDelete !== option)
+        const options = options.filter((option) => optionToDelete !== option)
+        
+        setOptions(options)
+        
         // this.setState((prevState) => ({
         //     options: prevState.options.filter(
         //         (option) => optionToDelete !== option   //if the option is not the same as optionToDelete, store in options
@@ -52,7 +55,7 @@ const IndecisionApp = () => {
     const handleAddOption = (option) => {
         if (!option) {
             return 'Enter valid value to return item'
-        } else if (this.state.options.indexOf(option) > -1) {
+        } else if (options.indexOf(option) > -1) {
             //checks for a duplicate
             return 'This item already exists'
         }
@@ -69,9 +72,7 @@ const IndecisionApp = () => {
             const jsonOptions = localStorage.getItem('options')
             const options = JSON.parse(jsonOptions)
 
-            if (options) {
-                this.setState(() => ({ options })) //i.e setting options: options
-            }
+            setOptions(options)
         } catch (err) {
             //if error, do nothing at all. fall back to default values
         }
@@ -90,13 +91,13 @@ const IndecisionApp = () => {
     //     }
     // }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.options.length !== this.state.options.length) {
-            const jsonOptions = JSON.stringify(this.state.options)
-            localStorage.setItem('options', jsonOptions)
-        }
-        //if new options are set in options array, take new items and store in localStorage
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.options.length !== this.state.options.length) {
+    //         const jsonOptions = JSON.stringify(this.state.options)
+    //         localStorage.setItem('options', jsonOptions)
+    //     }
+    //     //if new options are set in options array, take new items and store in localStorage
+    // }
 
     const subtitle = 'What would you like to do today?'
         
