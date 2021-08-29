@@ -9,7 +9,7 @@ import OptionModal from './OptionModal'
 const IndecisionApp = () => {
 
     const [options, setOptions] = useState([])
-    const [selectedOption, setSelectedOption] = useState([])
+    const [selectedOption, setSelectedOption] = useState(null)
     console.log('Options from Indecision : ', options)
     // state = {
     //     options: [],
