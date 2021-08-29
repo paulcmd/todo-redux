@@ -118,8 +118,8 @@ const IndecisionApp = () => {
                     </div>
                 </div>
                 <OptionModal
-                    selectedOption={this.state.selectedOption}
-                    handleDeleteModalOption={this.handleDeleteModalOption}
+                    selectedOption={selectedOption}
+                    handleDeleteModalOption={handleDeleteModalOption}
                 />
             </div>
         )
