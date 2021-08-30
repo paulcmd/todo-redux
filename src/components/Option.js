@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Option = ({ count, optionText, handleDeleteOption }) => (
+const Option = ({ index, count, optionText, markComplete }) => (
     <div className="option">
         <p className="option__text">
             {count}. {optionText}
@@ -9,7 +9,7 @@ const Option = ({ count, optionText, handleDeleteOption }) => (
         <button
             className="button button--link"
             onClick={() => {
-                handleDeleteOption(optionText)
+                markComplete(index)
             }}
         >
             Remove

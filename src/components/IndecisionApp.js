@@ -21,13 +21,15 @@ const IndecisionApp = () => {
         // this.setState(() => ({ options: [] })) //we use parenthesis around brackets for the short hand arrow method, or else the function will assume we are scoping
     }
 
-    const handleDeleteOption = (optionToDelete) => {
+    const markComplete = (clickedOptionIndex) => {
 
-        // map thru options
-
-        const optionsAfterDeleting = options.filter((option) => optionToDelete !== option)
-        
-        setOptions(optionsAfterDeleting)
+        const completedOption = options.map((option, index) => {
+            if(option[index] === clickedOptionIndex) {
+                option.completed = !option.completed
+            }
+            console.log('completed : ', completedOption)
+            return completed
+        })
         
         // this.setState((prevState) => ({
         //     options: prevState.options.filter(
@@ -122,7 +124,7 @@ const IndecisionApp = () => {
                         <Options
                             options={options}
                             handleDeleteOptions={handleDeleteOptions}
-                            handleDeleteOption={handleDeleteOption}
+                            markComplete={markComplete}
                         />
                         <AddOption handleAddOption={handleAddOption} 
                         />

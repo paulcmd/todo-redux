@@ -7,7 +7,12 @@ const AddOption = ({ handleAddOption }) => {
         //functions in components are declared without const and without the arrow. this 1st handleAddOption is preventing default. it belongs to this component
         e.preventDefault()
 
-        const option = e.target.elements.option.value.trim() //trim spaces before and after text. also doesn't display empty strings
+        const option = {
+            title : e.target.elements.option.value.trim(),
+            completed : false
+        } //trim spaces before and after text. also doesn't display empty strings
+
+        
         console.log('Added option : ', option)
         const error = handleAddOption(option)
         //we are passing option to the handleAddOption in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
@@ -30,6 +35,7 @@ const AddOption = ({ handleAddOption }) => {
                     type="text"
                     name="option"
                     placeholder="Add Todo..."
+                
                 />
                 <button className="button">Add Todo</button>
             </form>
