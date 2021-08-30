@@ -40,7 +40,7 @@ const IndecisionApp = () => {
     const handlePick = () => {
         const randomNum = Math.floor(Math.random() * options.length) //has to be same length as array
         const option = options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
-        console.log(option)
+        //console.log(option)
         
         setSelectedOption(option)
         // this.setState(() => ({

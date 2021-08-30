@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 
 const OptionModal = (props) => (
     <Modal
-        isOpen={props.selectedOption}
+        isOpen={!!props.selectedOption}
         contentLabel="Selected Option" //accessibility option
         onRequestClose={props.handleDeleteModalOption} //removes modal when press escape or click outside modal
         closeTimeoutMS={200}
@@ -17,6 +17,6 @@ const OptionModal = (props) => (
 
 //!!'test' => true
 //!!undefined => false
-//!! converts anything to boolean
+//!! converts anything to boolean!
 
 export default OptionModal
