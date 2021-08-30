@@ -22,15 +22,21 @@ const IndecisionApp = () => {
     }
 
     const markComplete = (clickedOptionIndex) => {
-
-        const completedOption = options.map((option, index) => {
-            if(option[index] === clickedOptionIndex) {
+//console.log('option at index :', clickedOptionIndex)
+        const updatedOptions = options.map((option, index) => {
+            
+            if (index === clickedOptionIndex) {
                 option.completed = !option.completed
             }
-            console.log('completed : ', completedOption)
-            return completed
+           // console.log('completedOPtion : ', option)
+            return option
         })
-        
+        console.log('updatedOptions : ', updatedOptions)
+        setOptions(updatedOptions)
+
+        /* 
+        NB: After option is flipped to completed, it is returned to the options 
+        */
         // this.setState((prevState) => ({
         //     options: prevState.options.filter(
         //         (option) => optionToDelete !== option   //if the option is not the same as optionToDelete, store in options

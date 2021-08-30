@@ -25,7 +25,7 @@ const Options = (props) => {
                 <Option
                     key={index}
                     index={index}
-                    optionText={option.title}
+                    option={option}
                     count={index + 1}
                     markComplete={props.markComplete}
                 />
