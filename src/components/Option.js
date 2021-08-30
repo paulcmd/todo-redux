@@ -18,3 +18,5 @@ const Option = ({ count, optionText, handleDeleteOption }) => (
 )
 
 export default Option
+
+//Remove remove button and replace with checkbox

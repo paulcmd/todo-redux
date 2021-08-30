@@ -29,6 +29,7 @@ const AddOption = ({ handleAddOption }) => {
                     className="add-option__input"
                     type="text"
                     name="option"
+                    placeholder="Add Todo..."
                 />
                 <button className="button">Add Todo</button>
             </form>
