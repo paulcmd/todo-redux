@@ -52,6 +52,8 @@ const IndecisionApp = () => {
         const option = options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
         //console.log(option)
         console.log('handlePick Option : ', option)
+
+        // create an array of incomplete options, then randonly select from those. use useEffect
         setSelectedOption(option)
         // this.setState(() => ({
         //     selectedOption: option
