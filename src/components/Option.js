@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Option = ({ count, option, markComplete }) => {
-
     // getStyle = () => {
     //     return {
     //         background: 'f4f4f4',
@@ -10,14 +9,16 @@ const Option = ({ count, option, markComplete }) => {
     //         textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     //     }
     // }
-const className = {option.completed &&}
+
+    //if completed, use option__text__line-through
+    const className = `${option.completed ? 'option__text__line-through' : 'option__text'}`
     return (
         <div className="option">
-            <p className="option__text">
+            <p className={className}>
                 {count}. {option.title}
             </p>
 
-            <input type="checkbox" onChange={() => markComplete(count - 1)} />
+            <input type="checkbox" onChange={() => markComplete(count - 1)} checked={option.completed}/>
 
             {/* <button
             className="button button--link"
@@ -29,7 +30,6 @@ const className = {option.completed &&}
         </button> */}
         </div>
     )
-    
 }
 
 export default Option

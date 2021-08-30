@@ -13,3 +13,14 @@
     margin: 0;
     word-break: break-all;
 }
+
+.option__text__line-through {
+    color:$off-white;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0;
+    word-break: break-all;
+    text-decoration: line-through;
+    font-style: italic;
+     
+}
