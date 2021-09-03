@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
 
-const AddOption = ({ handleAddOption }) => {
+const AddTodo = ({ handleAddTodo }) => {
     const [error, setError] = useState(undefined)
 
-    const handleOptionInput = (e) => {
+    const handleTodoInput = (e) => {
         //functions in components are declared without const and without the arrow. this 1st handleAddOption is preventing default. it belongs to this component
         e.preventDefault()
 
-        const option = {
-            title : e.target.elements.option.value.trim(),
+        const todo = {
+            title : e.target.elements.todo.value.trim(),
             completed : false
         } //trim spaces before and after text. also doesn't display empty strings
 
         
-        console.log('Added option : ', option)
-        const error = handleAddOption(option)
+        console.log('Added todo : ', todo)
+        const error = handleAddTodo(todo)
         //we are passing option to the handleAddOption in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
 
         setError(error)
 
         if (!error) {
-            e.target.elements.option.value = ''
+            e.target.elements.todo.value = ''
         }
     }
 
@@ -29,11 +29,11 @@ const AddOption = ({ handleAddOption }) => {
             {error && (
                 <p className="add-option-error">{error}</p>
             )}
-            <form className="add-option" onSubmit={handleOptionInput}>
+            <form className="add-option" onSubmit={handleTodoInput}>
                 <input
                     className="add-option__input"
                     type="text"
-                    name="option"
+                    name="todo"
                     placeholder="Add Todo..."
                 
                 />

@@ -5,7 +5,7 @@ const Action = (props) => (
         <button
             className="big-button"
             onClick={props.handlePick}
-            disabled={!props.hasOptions} //true if there are options, flip to disable
+            disabled={!props.hasTodos} //true if there are options, flip to disable
         >
             Pick A Random Todo
         </button>

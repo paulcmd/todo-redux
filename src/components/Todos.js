@@ -22,7 +22,7 @@ const Todos = (props) => {
             )}
 
             {props.todos.map((todo, index) => (
-                <Option
+                <Todo
                     key={index}
                     index={index}
                     todo={todo}
