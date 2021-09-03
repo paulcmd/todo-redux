@@ -43,4 +43,4 @@ const AddOption = ({ handleAddOption }) => {
     )
 }
 
-export default AddOption
+export default AddTodo

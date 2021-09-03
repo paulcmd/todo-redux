@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Option = ({ count, option, markComplete }) => {
+const Todo = ({ count, option, markComplete }) => {
     // getStyle = () => {
     //     return {
     //         background: 'f4f4f4',
@@ -32,6 +32,6 @@ const Option = ({ count, option, markComplete }) => {
     )
 }
 
-export default Option
+export default Todo
 
 //Remove remove button and replace with checkbox
