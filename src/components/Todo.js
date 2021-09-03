@@ -1,37 +1,20 @@
 import React from 'react'
 
-const Todo = ({ count, option, markComplete }) => {
-    // getStyle = () => {
-    //     return {
-    //         background: 'f4f4f4',
-    //         padding: '10px',
-    //         borderBottom: '1px #ccc dotted',
-    //         textDecoration: this.props.todo.completed ? 'line-through' : 'none'
-    //     }
-    // }
+const Todo = ({ count, todo, markComplete }) => {
+    
 
     //if completed, use option__text__line-through
-    const className = `${option.completed ? 'option__text__line-through' : 'option__text'}`
+    const className = `${todo.completed ? 'option__text__line-through' : 'option__text'}`
     return (
         <div className="option">
             <p className={className}>
-                {count}. {option.title}
+                {count}. {todo.title}
             </p>
 
-            <input type="checkbox" onChange={() => markComplete(count - 1)} checked={option.completed}/>
-
-            {/* <button
-            className="button button--link"
-            onClick={() => {
-                markComplete(count-1)
-            }}
-        >
-            Remove
-        </button> */}
+            <input type="checkbox" onChange={() => markComplete(count - 1)} checked={todo.completed} />
+            {/* count - 1 is the index */}
         </div>
     )
 }
 
 export default Todo
-
-//Remove remove button and replace with checkbox

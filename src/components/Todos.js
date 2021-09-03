@@ -1,31 +1,31 @@
 import React from 'react'
-import Option from './Option'
+import Todo from './Todo'
 
-const Options = (props) => {
-    console.log('Options props : ', props)
+const Todos = (props) => {
+    console.log('Todos props : ', props)
     return (
         <div>
             <div className="widget-header">
                 <h3 className="widget-header__title"> Your Options</h3>
                 <button
                     className="button button--link"
-                    onClick={props.handleDeleteOptions}
+                    onClick={props.handleDeleteTodos}
                 >
                     Remove All
                 </button>
             </div>
 
-            {props.options.length === 0 && (
+            {props.todos.length === 0 && (
                 <p className="widget__message">
                     Please add an option to get started!
                 </p>
             )}
 
-            {props.options.map((option, index) => (
+            {props.todos.map((todo, index) => (
                 <Option
                     key={index}
                     index={index}
-                    option={option}
+                    todo={todo}
                     count={index + 1}
                     markComplete={props.markComplete}
                 />
@@ -35,4 +35,4 @@ const Options = (props) => {
     
 }
 
-export default Options
+export default Todos
