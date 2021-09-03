@@ -8,31 +8,31 @@ import OptionModal from './OptionModal'
 
 const IndecisionApp = () => {
 
-    const [options, setOptions] = useState([])
-    const [selectedOption, setSelectedOption] = useState(null)
-    console.log('Options from Indecision : ', options)
+    const [todos, setTodos] = useState([])
+    const [selectedTodo, setSelectedTodo] = useState(null)
+    console.log('Options from Indecision : ', todos)
     // state = {
     //     options: [],
     //     selectedOption: undefined
     // }
 
     const handleDeleteOptions = () => {
-       setOptions([])
+       setTodos([])
         // this.setState(() => ({ options: [] })) //we use parenthesis around brackets for the short hand arrow method, or else the function will assume we are scoping
     }
 
-    const markComplete = (clickedOptionIndex) => {
+    const markComplete = (clickedTodoIndex) => {
 //console.log('option at index :', clickedOptionIndex)
-        const updatedOptions = options.map((option, index) => {
+        const updatedTodos = todos.map((todo, index) => {
             
-            if (index === clickedOptionIndex) {
-                option.completed = !option.completed
+            if (index === clickedTodoIndex) {
+                todo.completed = !todo.completed
             }
            // console.log('completedOPtion : ', option)
-            return option
+            return todo
         })
-        console.log('updatedOptions : ', updatedOptions)
-        setOptions(updatedOptions)
+        console.log('updatedOptions : ', updatedTodos)
+        setOptions(updatedTodos)
 
         /* 
         NB: After option is flipped to completed, it is returned to the options 
@@ -48,7 +48,7 @@ const IndecisionApp = () => {
     const handlePick = () => {
        
         const randomNum = Math.floor(Math.random() * options.length) //has to be same length as array
-       console.log('random number : ', randomNum)
+        console.log('random number : ', randomNum)
         const option = options[randomNum] // From options array, we are picking a random index of an item equivalent to a random number generated
         //console.log(option)
         console.log('handlePick Option : ', option)
