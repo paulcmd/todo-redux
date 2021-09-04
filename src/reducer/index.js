@@ -6,13 +6,13 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case ADD_TODO:
+        case ADD_TODOS:
             return {
                 ...state,
-                title: action.payload,
-                completed: action.payload
+                title: action.payload.title,
+                completed : action.payload.completed
             }
-        case DELETE_TODO:
+        case DELETE_TODOS:
             return _.omit(state, action.payload)
         default:
             return state

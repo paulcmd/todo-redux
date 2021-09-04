@@ -8,11 +8,11 @@ const AddTodo = ({ handleAddTodo }) => {
         e.preventDefault()
 
         const todo = {
-            title : e.target.elements.todo.value.trim(),
-            completed : false
+            title: e.target.elements.todo.value.trim(),
+            completed: false
         } //trim spaces before and after text. also doesn't display empty strings
-
         
+
         console.log('Added todo : ', todo)
         const error = handleAddTodo(todo)
         //we are passing option to the handleAddOption in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
@@ -26,16 +26,13 @@ const AddTodo = ({ handleAddTodo }) => {
 
     return (
         <div>
-            {error && (
-                <p className="add-option-error">{error}</p>
-            )}
+            {error && <p className="add-option-error">{error}</p>}
             <form className="add-option" onSubmit={handleTodoInput}>
                 <input
                     className="add-option__input"
                     type="text"
                     name="todo"
                     placeholder="Add Todo..."
-                
                 />
                 <button className="button">Add Todo</button>
             </form>

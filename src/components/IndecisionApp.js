@@ -45,7 +45,7 @@ const IndecisionApp = () => {
         setSelectedTodo(undefined)
     }
 
-    const handleAddOption = (todo) => {
+    const handleAddTodo = (todo) => {
         if (!todo) {
             return 'Enter valid value to return item'
         } else if (todos.indexOf(todo) > -1) {
@@ -71,6 +71,11 @@ const IndecisionApp = () => {
         const jsonTodos = JSON.stringify(todos)
         localStorage.setItem('options', jsonTodos)
     }, [todos])
+
+    dispatch({
+        type: 'ADD_TODOS',
+        payload: todos
+    })
 
     const subtitle = 'What would you like to do today?'
 
