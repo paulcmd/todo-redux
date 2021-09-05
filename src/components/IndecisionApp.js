@@ -63,7 +63,7 @@ const IndecisionApp = () => {
 
             setTodos(todos)
         } catch (err) {
-            //if error, do nothing at all. fall back to default values ten
+            //if error, do nothing at all. fall back to default values
         }
     }, [])
 
