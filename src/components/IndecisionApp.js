@@ -74,7 +74,7 @@ const IndecisionApp = () => {
 
     dispatch({
         type: 'ADD_TODOS',
-        payload: todos
+        payload: todos.completed
     })
 
     const subtitle = 'What would you like to do today?'
