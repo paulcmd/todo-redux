@@ -15,7 +15,7 @@ const AddTodo = ({ handleAddTodo }) => {
 
         console.log('Added todo : ', todo)
         const error = handleAddTodo(todo)
-        //we are passing option to the handleAddOption in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
+        //we are passing todo to the handleAddTodo in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
 
         setError(error)
 

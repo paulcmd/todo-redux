@@ -7,9 +7,19 @@ import Todos from './Todos'
 import TodoModal from './TodoModal'
 
 const IndecisionApp = () => {
-    const [todos, setTodos] = useState([])
+    const initialState = [
+        {
+            title: 'First todo',
+            completed: false
+        },
+        {
+            title: 'Second todo',
+            completed: true
+        }
+    ]
+    const [todos, setTodos] = useState(initialState)
     const [selectedTodo, setSelectedTodo] = useState(null)
-    console.log('Options from Indecision : ', todos)
+    console.log('Todos from Indecision : ', todos)
 
     const handleDeleteTodos = () => {
         setTodos([])
@@ -36,7 +46,7 @@ const IndecisionApp = () => {
         console.log('random number : ', randomNum)
         const selectedTodo = todos[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
 
-        console.log('handlePick Option : ', todo)
+        console.log('handlePick Option : ', selectedTodo)
 
         setSelectedTodo(selectedTodo)
     }
@@ -72,18 +82,13 @@ const IndecisionApp = () => {
         localStorage.setItem('options', jsonTodos)
     }, [todos])
 
-    
-
     const subtitle = 'What would you like to do today?'
 
     return (
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                <Action
-                    hasTodos={todos.length > 1}
-                    handlePick={handlePick}
-                />
+                <Action hasTodos={todos.length > 1} handlePick={handlePick} />
                 <div className="widget">
                     <Todos
                         todos={todos}
