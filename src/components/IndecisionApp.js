@@ -7,18 +7,10 @@ import Todos from './Todos'
 import TodoModal from './TodoModal'
 
 const IndecisionApp = () => {
-    const initialState = [
-        {
-            title: 'First todo',
-            completed: false
-        },
-        {
-            title: 'Second todo',
-            completed: true
-        }
-    ]
-    const [todos, setTodos] = useState(initialState)
+    
+    const [todos, setTodos] = useState([])
     const [selectedTodo, setSelectedTodo] = useState(null)
+    const [incompleteTodo, setIncompleteTodo] = useState(null)
     console.log('Todos from Indecision : ', todos)
 
     const handleDeleteTodos = () => {
@@ -34,18 +26,22 @@ const IndecisionApp = () => {
             return todo
         })
         console.log('updatedOptions : ', updatedTodos)
-        setOptions(updatedTodos)
+        setTodos(updatedTodos)
 
         /* 
-        NB: After todo is flipped to completed, it is returned to todos array 
+        NB: After todo is flipped to completed, it is returned to todos array, else if todo was untouched, return it
         */
     }
 
     const handlePick = () => {
         const randomNum = Math.floor(Math.random() * todos.length) //has to be same length as array
         console.log('random number : ', randomNum)
-        const selectedTodo = todos[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
+        const selectedTodo = incompleteTodo[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
 
+        /* 
+        create state of incomplete todos
+        map thru incomplete todos and set them in a state
+        */
         console.log('handlePick Option : ', selectedTodo)
 
         setSelectedTodo(selectedTodo)
@@ -70,8 +66,9 @@ const IndecisionApp = () => {
         try {
             const jsonTodos = localStorage.getItem('todos')
             const todos = JSON.parse(jsonTodos)
-
-            setTodos(todos)
+            if (todos) {
+                setTodos(todos)
+            }
         } catch (err) {
             //if error, do nothing at all. fall back to default values
         }
@@ -81,6 +78,14 @@ const IndecisionApp = () => {
         const jsonTodos = JSON.stringify(todos)
         localStorage.setItem('options', jsonTodos)
     }, [todos])
+
+    useEffect(() => {
+        const incompleteTodo = todos.filter((todo) => todo.complete === false)
+        setIncompleteTodo(incompleteTodo)
+    },[todos])
+    /* 
+    use useeffect to listen to changes in todos. filter out incomplete todos and send to Action
+    */
 
     const subtitle = 'What would you like to do today?'
 
