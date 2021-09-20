@@ -72,10 +72,7 @@ const IndecisionApp = () => {
         localStorage.setItem('options', jsonTodos)
     }, [todos])
 
-    dispatch({
-        type: 'ADD_TODOS',
-        payload: todos
-    })
+    
 
     const subtitle = 'What would you like to do today?'
 
