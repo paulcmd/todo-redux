@@ -10,7 +10,7 @@ const IndecisionApp = () => {
     
     const [todos, setTodos] = useState([])
     const [selectedTodo, setSelectedTodo] = useState(null)
-    const [incompleteTodo, setIncompleteTodo] = useState(null)
+    const [incompleteTodos, setIncompleteTodos] = useState(null)
     console.log('Todos from Indecision : ', todos)
 
     const handleDeleteTodos = () => {
@@ -34,9 +34,9 @@ const IndecisionApp = () => {
     }
 
     const handlePick = () => {
-        const randomNum = Math.floor(Math.random() * todos.length) //has to be same length as array
+        const randomNum = Math.floor(Math.random() * incompleteTodos.length) //has to be same length as array
         console.log('random number : ', randomNum)
-        const selectedTodo = incompleteTodo[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
+        const selectedTodo = incompleteTodos[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
 
         /* 
         create state of incomplete todos
@@ -49,6 +49,12 @@ const IndecisionApp = () => {
 
     const handleDeleteModalTodo = () => {
         setSelectedTodo(undefined)
+    }
+
+    const hasIncompleteTodos = () => {
+        if (incompleteTodos.length < 0) {
+            return
+        }
     }
 
     const handleAddTodo = (todo) => {
@@ -80,8 +86,9 @@ const IndecisionApp = () => {
     }, [todos])
 
     useEffect(() => {
-        const incompleteTodo = todos.filter((todo) => todo.complete === false)
-        setIncompleteTodo(incompleteTodo)
+        const incompleteTodos = todos.filter((todo) => todo.completed === false)
+        setIncompleteTodos(incompleteTodos)
+        console.log('Incomplete todos : ' ,incompleteTodos)
     },[todos])
     /* 
     use useeffect to listen to changes in todos. filter out incomplete todos and send to Action
@@ -93,7 +100,7 @@ const IndecisionApp = () => {
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                <Action hasTodos={todos.length > 1} handlePick={handlePick} />
+                <Action hasTodos={incompleteTodos.length > 1} handlePick={handlePick} />
                 <div className="widget">
                     <Todos
                         todos={todos}
