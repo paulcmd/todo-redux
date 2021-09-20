@@ -18,7 +18,7 @@ const IndecisionApp = () => {
     const markComplete = (clickedTodoIndex) => {
         const updatedTodos = todos.map((todo, index) => {
             if (index === clickedTodoIndex) {
-                todo.completed = !todo
+                todo.completed = !todo.completed
             }
             // console.log('completedOPtion : ', option)
             return todo
