@@ -74,7 +74,7 @@ const IndecisionApp = () => {
 
     
 
-    const subtitle = 'What would you like to do ?'
+    const subtitle = 'What would you like to do today?'
 
     return (
         <div>
