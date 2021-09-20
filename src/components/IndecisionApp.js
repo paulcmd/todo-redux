@@ -87,7 +87,7 @@ const IndecisionApp = () => {
                 <div className="widget">
                     <Todos
                         todos={todos}
-                        handleDeleteTodos={handleDeleteTodos}
+                        handleDeleteTodos={}
                         markComplete={markComplete}
                     />
                     <AddTodo handleAddTodo={handleAddTodo} />
