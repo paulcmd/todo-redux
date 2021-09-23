@@ -50,12 +50,6 @@ const IndecisionApp = () => {
         setSelectedTodo(undefined)
     }
 
-    // const hasIncompleteTodos = () => {
-    //     if (incompleteTodos.length < 0) {
-    //         return
-    //     }
-    // }
-
     const handleAddTodo = (todo) => {
         if (!todo) {
             return 'Enter valid value to return item'
