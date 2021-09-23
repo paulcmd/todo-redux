@@ -48,10 +48,10 @@ To use the application, go to __[this link](https://pmw-indecision-app.netlify.a
 ![img-1](readme-imgs/landing.png)
 
 Steps to use this application:
-* __step 1:__ Input an option and click the "Add Option" button.
+* __step 1:__ Input a Todo and click the "Add Todo" button.
 
 ![img-1](readme-imgs/add.png)
-* __step 2:__ Click the 'What Should I Do' button to randomly select and display an option.
+* __step 2:__ Click the 'Pick A Random Todo' button to randomly select and display a Todo.
 
 ![img-1](readme-imgs/modal.png)
 
