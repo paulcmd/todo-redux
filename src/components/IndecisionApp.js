@@ -84,16 +84,7 @@ const IndecisionApp = () => {
         localStorage.setItem('options', jsonTodos)
     }, [todos])
 
-    // const handleIncompleteTodos = (incompleteTodos) => {
-    //     if (incompleteTodos<0) {
-    //         const incompleteTodo = todos.filter(
-    //             (todo) => todo.completed === false
-    //         )
-    //         setIncompleteTodos(incompleteTodo)
-    //         return incompleteTodo
-    //     }
-    //     console.log('Incomplete todos : ', incompleteTodos)
-    // }
+    
 
     const handleIncompleteTodos = () => {
         const incompleteTodos = todos.filter((todo) => todo.completed === false)
