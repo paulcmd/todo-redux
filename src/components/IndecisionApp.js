@@ -21,7 +21,7 @@ const IndecisionApp = () => {
             if (index === clickedTodoIndex) {
                 todo.completed = !todo.completed
             }
-            // console.log('completedOPtion : ', option)
+            
             return todo
         })
         console.log('updatedTodos : ', updatedTodos)
