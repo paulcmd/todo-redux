@@ -1,4 +1,4 @@
-# Indecision App
+# Todo App
   ![GitHub repo size](https://img.shields.io/github/repo-size/paulcmd/Indecision-App?style=for-the-badge) ![GitHub code size](https://img.shields.io/github/languages/code-size/paulcmd/Indecision-App?color=gold&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/paulcmd/Indecision-App?color=green&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/paulcmd/Indecision-App?color=red&style=for-the-badge)
 
 ---
