@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Action = ({ handlePick, hasTodos }) => (
+const Action = ({ handlePick, hasIncompleteTodos }) => (
     <div>
         <button
             className="big-button"
             onClick={handlePick}
-            disabled={!hasTodos} //true if there are options, flip to disable
+            disabled={!hasIncompleteTodos} //true if there are options, flip to disable
         >
             Pick A Random Todo
         </button>
