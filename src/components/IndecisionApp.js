@@ -78,13 +78,11 @@ const IndecisionApp = () => {
         localStorage.setItem('options', jsonTodos)
     }, [todos])
 
-    
-
     const handleIncompleteTodos = () => {
         const incompleteTodos = todos.filter((todo) => todo.completed === false)
         setIncompleteTodos(incompleteTodos)
         console.log('Incomplete todo from handleIncompleteTodos : ',incompleteTodos)
-        return incompleteTodos
+    
     }
     useEffect(() => {
         handleIncompleteTodos()
@@ -99,7 +97,7 @@ const IndecisionApp = () => {
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                <Action hasIncompleteTodos={handleIncompleteTodos} handlePick={handlePick} />
+                <Action hasIncompleteTodos={incompleteTodos.length > 0} handlePick={handlePick} />
                 <div className="widget">
                     <Todos
                         todos={todos}
