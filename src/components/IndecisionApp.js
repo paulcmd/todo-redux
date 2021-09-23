@@ -97,7 +97,7 @@ const IndecisionApp = () => {
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                <Action hasIncompleteTodos={incompleteTodos.length > 0} handlePick={handlePick} />
+                <Action hasIncompleteTodos={incompleteTodos.length > 1} handlePick={handlePick} />
                 <div className="widget">
                     <Todos
                         todos={todos}
