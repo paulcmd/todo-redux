@@ -7,7 +7,7 @@ import Todos from './Todos'
 import TodoModal from './TodoModal'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { handleAddTodo } from '../redux/todoSlice'
+
 
 const IndecisionApp = () => {
     const [todos, setTodos] = useState([])
@@ -65,6 +65,8 @@ const IndecisionApp = () => {
 
         setTodos([...todos, todo])
     }
+
+    
 
     useEffect(() => {
         try {

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 const todoSlice = createSlice({
-	name: 'todo',
+	name: 'todos',
 	initialState: {
 		title: 'Make Breakfast',
 		completed: false
@@ -11,7 +11,7 @@ const todoSlice = createSlice({
 				title: action.payload.title,
 				completed: action.payload.completed
 			}
-			state.push(newTodo)
+			state.concat(newTodo)
 		}
 	}
 })
