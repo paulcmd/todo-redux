@@ -1,19 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 const todoSlice = createSlice({
-	name: 'todos',
-	initialState: {
-		title: 'Make Breakfast',
-		completed: false
-	},
-	reducers: {
-		handleAddTodo: (state, action) => {
-			const newTodo = {
-				title: action.payload.title,
-				completed: action.payload.completed
-			}
-			state.concat(newTodo)
-		}
-	}
+    name: 'todos',
+    initialState: [
+        {
+            title: 'Make Breakfast',
+            completed: false
+        }
+    ],
+    reducers: {
+        handleAddTodo: (state, action) => {
+            const newTodo = {
+                title: action.payload.title,
+                completed: action.payload.completed
+            }
+			 state.push(newTodo) 
+        }
+    }
 })
 
 export const { handleAddTodo } = todoSlice.actions

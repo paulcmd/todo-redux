@@ -5,7 +5,7 @@ import { handleAddTodo } from '../redux/todoSlice'
 const AddTodo = () => {
     const [error, setError] = useState(undefined)
 
-    const { todos } = useSelector((state) => state.todos)
+    const  todos  = useSelector((state) => state.todos)
     console.log('Todos from useSelector! : ', todos)
     const dispatch = useDispatch()
     const handleTodoInput = (e) => {
@@ -18,7 +18,8 @@ const AddTodo = () => {
         } //trim spaces before and after text. also doesn't display empty strings
 
         console.log('Added todo : ', todo)
-         dispatch(handleAddTodo(todo))
+        //console.log(dispatch(handleAddTodo(todo))) returns type and payload!
+        dispatch(handleAddTodo(todo))
         //we are passing todo to the handleAddTodo in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
 
         //setError(error)
