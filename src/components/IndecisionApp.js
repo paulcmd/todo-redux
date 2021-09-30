@@ -6,11 +6,16 @@ import Action from './Action'
 import Todos from './Todos'
 import TodoModal from './TodoModal'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { handleAddTodo } from '../redux/todoSlice'
+
 const IndecisionApp = () => {
     const [todos, setTodos] = useState([])
     const [selectedTodo, setSelectedTodo] = useState(null)
     const [incompleteTodos, setIncompleteTodos] = useState([])
     console.log('Todos from Indecision : ', todos)
+
+    const dispatch = useDispatch()
 
     const handleDeleteTodos = () => {
         setTodos([])
