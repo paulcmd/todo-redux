@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { handleAddTodo } from '../redux/todoSlice'
 
-const AddTodo = () => {
+
+
+const AddTodo = ({ handleAddTodo }) => {
     const [error, setError] = useState(undefined)
 
-    const  todos  = useSelector((state) => state.todos)
-    console.log('Todos from useSelector! : ', todos)
-    const dispatch = useDispatch()
+    
+    
+    
     const handleTodoInput = (e) => {
         //functions in components are declared without const and without the arrow. this 1st handleAddOption is preventing default. it belongs to this component
         e.preventDefault()
@@ -18,11 +18,11 @@ const AddTodo = () => {
         } //trim spaces before and after text. also doesn't display empty strings
 
         console.log('Added todo : ', todo)
-        //console.log(dispatch(handleAddTodo(todo))) returns type and payload!
-        dispatch(handleAddTodo(todo))
+        const error = handleAddTodo(todo)
+        
         //we are passing todo to the handleAddTodo in the parent component(Indecision). The only return expected is the error, else option was concatenated well.
 
-        //setError(error)
+        setError(error)
 
         if (!error) {
             e.target.elements.todo.value = ''

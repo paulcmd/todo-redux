@@ -5,9 +5,9 @@ import Header from './Header'
 import Action from './Action'
 import Todos from './Todos'
 import TodoModal from './TodoModal'
+import { handleAddTodos } from '../redux/todoSlice'
 
 import { useSelector, useDispatch } from 'react-redux'
-
 
 const IndecisionApp = () => {
     const [todos, setTodos] = useState([])
@@ -15,7 +15,9 @@ const IndecisionApp = () => {
     const [incompleteTodos, setIncompleteTodos] = useState([])
     console.log('Todos from Indecision : ', todos)
 
+    
     const dispatch = useDispatch()
+    console.log(dispatch(handleAddTodos(todos))) 
 
     const handleDeleteTodos = () => {
         setTodos([])
@@ -26,7 +28,7 @@ const IndecisionApp = () => {
             if (index === clickedTodoIndex) {
                 todo.completed = !todo.completed
             }
-            
+
             return todo
         })
         console.log('updatedTodos : ', updatedTodos)
@@ -66,34 +68,34 @@ const IndecisionApp = () => {
         setTodos([...todos, todo])
     }
 
-    
+    // useEffect(() => {
+    //     try {
+    //         const jsonTodos = localStorage.getItem('todos')
+    //         const todos = JSON.parse(jsonTodos)
+    //         if (todos) {
+    //             setTodos(todos)
+    //         }
+    //     } catch (err) {
+    //         //if error, do nothing at all. fall back to default values
+    //     }
+    // }, [])
 
-    useEffect(() => {
-        try {
-            const jsonTodos = localStorage.getItem('todos')
-            const todos = JSON.parse(jsonTodos)
-            if (todos) {
-                setTodos(todos)
-            }
-        } catch (err) {
-            //if error, do nothing at all. fall back to default values
-        }
-    }, [])
+    // useEffect(() => {
+    //     const jsonTodos = JSON.stringify(todos)
+    //     localStorage.setItem('options', jsonTodos)
+    // }, [todos])
 
-    useEffect(() => {
-        const jsonTodos = JSON.stringify(todos)
-        localStorage.setItem('options', jsonTodos)
-    }, [todos])
-
-    const handleIncompleteTodos = () => {
-        const incompleteTodos = todos.filter((todo) => todo.completed === false)
-        setIncompleteTodos(incompleteTodos)
-        console.log('Incomplete todo from handleIncompleteTodos : ',incompleteTodos)
-    
-    }
-    useEffect(() => {
-        handleIncompleteTodos()
-    }, [todos])
+    // const handleIncompleteTodos = () => {
+    //     const incompleteTodos = todos.filter((todo) => todo.completed === false)
+    //     setIncompleteTodos(incompleteTodos)
+    //     console.log(
+    //         'Incomplete todo from handleIncompleteTodos : ',
+    //         incompleteTodos
+    //     )
+    // }
+    // useEffect(() => {
+    //     handleIncompleteTodos()
+    // }, [todos])
     /* 
     use useeffect to listen to changes in todos. filter out incomplete todos and send to Action
     */
@@ -104,12 +106,15 @@ const IndecisionApp = () => {
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                <Action hasIncompleteTodos={incompleteTodos.length > 1} handlePick={handlePick} />
+                <Action
+                    hasIncompleteTodos={incompleteTodos.length > 1}
+                    handlePick={handlePick}
+                />
                 <div className="widget">
                     <Todos
-                        todos={todos}
-                        handleDeleteTodos={handleDeleteTodos}
-                        markComplete={markComplete}
+                        
+                        // handleDeleteTodos={handleDeleteTodos}
+                        // markComplete={markComplete}
                     />
                     <AddTodo handleAddTodo={handleAddTodo} />
                 </div>

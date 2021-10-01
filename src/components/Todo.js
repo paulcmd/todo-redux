@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Todo = ({ count, todo, markComplete }) => {
+const Todo = ({ count, todo }) => {
     
 
     //if completed, use option__text__line-through
