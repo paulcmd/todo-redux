@@ -11,7 +11,7 @@ import './styles/styles.scss'
 
 ReactDOM.render(
     <Provider store={store} >
-        <IndecisionApp />
+        <TodoApp />
     </Provider>,
     document.getElementById('app')
 )

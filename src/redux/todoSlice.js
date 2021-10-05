@@ -3,21 +3,28 @@ const todoSlice = createSlice({
     name: 'todos',
     initialState: [
         {
+            id: 1,
             title: 'Make Breakfast',
+            completed: false
+        },
+        {
+            id: 1,
+            title: 'Make Bed',
             completed: false
         }
     ],
     reducers: {
-        handleAddTodos: (state, action) => {
+        addTodo: (state, action) => {
             const newTodo = {
+                id: Date.now(),
                 title: action.payload.title,
-                completed: action.payload.completed
+                completed: false
             }
             state.push(newTodo)
         }
     }
 })
 
-export const { handleAddTodos } = todoSlice.actions
+export const { addTodo } = todoSlice.actions
 
 export default todoSlice.reducer

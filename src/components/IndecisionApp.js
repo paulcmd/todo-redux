@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-import AddTodo from './AddTodo'
+import AddTodoForm from './AddTodoForm'
 import Header from './Header'
 import Action from './Action'
 import Todos from './Todos'
 import TodoModal from './TodoModal'
-import { handleAddTodos } from '../redux/todoSlice'
+import { addTodo } from '../redux/todoSlice'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -17,7 +17,7 @@ const IndecisionApp = () => {
 
     
     const dispatch = useDispatch()
-    console.log(dispatch(handleAddTodos(todos))) 
+    console.log('Dispatch : ', dispatch(addTodo(todos))) 
 
     const handleDeleteTodos = () => {
         setTodos([])
