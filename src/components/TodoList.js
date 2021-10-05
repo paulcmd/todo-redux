@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const TodoList = () => {
 
     const todos = useSelector((state) => state.todos)
-    console.log('Todos from Selector! : ', todos)
+    console.log('Todos from TodoList! : ', todos)
     return (
         <div>
             <div className="widget-header">
@@ -27,7 +27,6 @@ const TodoList = () => {
             {todos.map((todo, index) => (
                 <Todo
                     key={index}
-                    index={index}
                     todo={todo}
                     count={index + 1}
                    

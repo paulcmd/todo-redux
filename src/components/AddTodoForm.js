@@ -15,7 +15,7 @@ const AddTodoForm = () => {
             title: value
         })))
 
-        e.target.elements.todo.value = ''
+        setValue('')
     }
 
     // const handleTodoInput = (e) => {
