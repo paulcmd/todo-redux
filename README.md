@@ -43,7 +43,7 @@ $ npm run dev-server
 
 
 ## Usage:
-To use the application, go to __[this link](https://pmw-indecision-app.netlify.app/)__.
+To use the application, go to __[this link](https://pmw-todo-app.netlify.app/)__.
 
 ![img-1](readme-imgs/landing.png)
 
