@@ -1,10 +1,12 @@
 import React from 'react'
 import Todo from './Todo'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteTodos } from '../redux/todoSlice'
 
 const TodoList = () => {
 
     const todos = useSelector((state) => state.todos)
+    const dispatch = useDispatch()
     console.log('Todos from TodoList! : ', todos)
     return (
         <div>
@@ -12,7 +14,7 @@ const TodoList = () => {
                 <h3 className="widget-header__title"> Your Options</h3>
                 <button
                     className="button button--link"
-                    // onClick={props.handleDeleteTodos}
+                    onClick={() => dispatch(deleteTodos())}
                 >
                     Remove All
                 </button>
@@ -25,12 +27,7 @@ const TodoList = () => {
             )}
 
             {todos.map((todo, index) => (
-                <Todo
-                    key={index}
-                    todo={todo}
-                    count={index + 1}
-                   
-                />
+                <Todo key={index} todo={todo} count={index + 1} />
             ))}
         </div>
     )

@@ -28,10 +28,13 @@ const todoSlice = createSlice({
             )
 
             state[index].completed = action.payload.completed
+        },
+        deleteTodos: (state, action) => {
+            //    state.length = 0
         }
     }
 })
 
-export const { addTodo, toggleComplete } = todoSlice.actions
+export const { addTodo, toggleComplete, deleteTodos } = todoSlice.actions
 
 export default todoSlice.reducer
