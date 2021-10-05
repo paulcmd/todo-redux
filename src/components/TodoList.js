@@ -2,7 +2,7 @@ import React from 'react'
 import Todo from './Todo'
 import { useSelector } from 'react-redux'
 
-const Todos = () => {
+const TodoList = () => {
 
     const todos = useSelector((state) => state.todos)
     console.log('Todos from Selector! : ', todos)
@@ -38,4 +38,4 @@ const Todos = () => {
     
 }
 
-export default Todos
+export default TodoList

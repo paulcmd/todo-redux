@@ -11,9 +11,11 @@ const AddTodoForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(dispatch(addTodo({
+        console.log('Dispatched todo : ', dispatch(addTodo({
             title: value
         })))
+
+        e.target.elements.todo.value = ''
     }
 
     // const handleTodoInput = (e) => {

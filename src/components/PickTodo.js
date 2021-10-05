@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Action = ({ handlePick, hasIncompleteTodos }) => (
+const PickTodo = ({ handlePick, hasIncompleteTodos }) => (
     <div>
         <button
             className="big-button"
@@ -12,4 +12,4 @@ const Action = ({ handlePick, hasIncompleteTodos }) => (
     </div>
 )
 
-export default Action
+export default PickTodo

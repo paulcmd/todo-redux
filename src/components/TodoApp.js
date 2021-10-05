@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import AddTodoForm from './AddTodoForm'
 import Header from './Header'
-import Action from './Action'
-import Todos from './Todos'
+import PickTodo from './PickTodo'
+import TodoList from './TodoList'
 import TodoModal from './TodoModal'
 import { addTodo } from '../redux/todoSlice'
 
@@ -16,8 +16,6 @@ const IndecisionApp = () => {
     // console.log('Todos from Indecision : ', todos)
 
     
-    // const dispatch = useDispatch()
-    // console.log('Dispatch : ', dispatch(addTodo(todos))) 
 
     // const handleDeleteTodos = () => {
     //     setTodos([])
@@ -106,12 +104,12 @@ const IndecisionApp = () => {
         <div>
             <Header subtitle={subtitle} />
             <div className="container">
-                {/* <Action
+                {/* <PickTodo
                     hasIncompleteTodos={incompleteTodos.length > 1}
                     handlePick={handlePick}
                 /> */}
                 <div className="widget">
-                    <Todos />
+                    <TodoList />
                     <AddTodoForm  />
                 </div>
             </div>
