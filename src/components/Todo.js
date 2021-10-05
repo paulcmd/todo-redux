@@ -30,6 +30,7 @@ const Todo = ({ count, todo }) => {
                 onChange={onToggleComplete}
                 checked={todo.completed}
             />
+
             {/* count - 1 is the index */}
         </div>
     )

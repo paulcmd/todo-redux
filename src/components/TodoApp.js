@@ -5,12 +5,12 @@ import Header from './Header'
 import PickTodo from './PickTodo'
 import TodoList from './TodoList'
 import TodoModal from './TodoModal'
-import { addTodo } from '../redux/todoSlice'
+
 
 import { useSelector, useDispatch } from 'react-redux'
 
 const IndecisionApp = () => {
-    // const [todos, setTodos] = useState([])
+    const todos = useSelector((state) => state.todos) 
     // const [selectedTodo, setSelectedTodo] = useState(null)
     // const [incompleteTodos, setIncompleteTodos] = useState([])
     // console.log('Todos from Indecision : ', todos)
@@ -37,34 +37,25 @@ const IndecisionApp = () => {
     //     */
     // }
 
-    // const handlePick = () => {
-    //     const randomNum = Math.floor(Math.random() * incompleteTodos.length) //has to be same length as array
-    //     console.log('random number : ', randomNum)
-    //     const selectedTodo = incompleteTodos[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
+    const handlePick = () => {
+        const randomNum = Math.floor(Math.random() * incompleteTodos.length) //has to be same length as array
+        console.log('random number : ', randomNum)
+        const selectedTodo = incompleteTodos[randomNum] // From todos array, we are picking a random index of an item equivalent to a random number generated
 
-    //     /* 
-    //     create state of incomplete todos
-    //     map thru incomplete todos and set them in a state
-    //     */
-    //     console.log('handlePick Option : ', selectedTodo)
+        /* 
+        create state of incomplete todos
+        map thru incomplete todos and set them in a state
+        */
+        console.log('handlePick Option : ', selectedTodo)
 
-    //     setSelectedTodo(selectedTodo)
-    // }
+        setSelectedTodo(selectedTodo)
+    }
 
     // const handleDeleteModalTodo = () => {
     //     setSelectedTodo(undefined)
     // }
 
-    // const handleAddTodo = (todo) => {
-    //     if (!todo) {
-    //         return 'Enter valid value to return item'
-    //     } else if (todos.indexOf(todo) > -1) {
-    //         //checks for a duplicate
-    //         return 'This item already exists'
-    //     }
-
-    //     setTodos([...todos, todo])
-    // }
+   
 
     // useEffect(() => {
     //     try {
@@ -83,14 +74,14 @@ const IndecisionApp = () => {
     //     localStorage.setItem('options', jsonTodos)
     // }, [todos])
 
-    // const handleIncompleteTodos = () => {
-    //     const incompleteTodos = todos.filter((todo) => todo.completed === false)
-    //     setIncompleteTodos(incompleteTodos)
-    //     console.log(
-    //         'Incomplete todo from handleIncompleteTodos : ',
-    //         incompleteTodos
-    //     )
-    // }
+    const handleIncompleteTodos = () => {
+        const incompleteTodos = todos.filter((todo) => todo.completed === false)
+        setIncompleteTodos(incompleteTodos)
+        console.log(
+            'Incomplete todo from handleIncompleteTodos : ',
+            incompleteTodos
+        )
+    }
     // useEffect(() => {
     //     handleIncompleteTodos()
     // }, [todos])
@@ -113,10 +104,10 @@ const IndecisionApp = () => {
                     <AddTodoForm  />
                 </div>
             </div>
-            {/* <TodoModal
+            <TodoModal
                 selectedTodo={selectedTodo}
                 handleDeleteModalTodo={handleDeleteModalTodo}
-            /> */}
+            />
         </div>
     )
 }
