@@ -1,18 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 const todoSlice = createSlice({
     name: 'todos',
-    initialState: [
-        {
-            id: 1,
-            title: 'Make Breakfast',
-            completed: false
-        },
-        {
-            id: 2,
-            title: 'Make Bed',
-            completed: false
-        }
-    ],
+    initialState: [],
     reducers: {
         addTodo: (state, action) => {
             const newTodo = {
