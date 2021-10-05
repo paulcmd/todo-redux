@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { addTodo } from '../redux/todoSlice'
 import { useDispatch } from 'react-redux'
 
-const AddTodoForm = (addTodo) => {
+const AddTodoForm = () => {
     // const [error, setError] = useState(undefined)
 
     const dispatch = useDispatch()
@@ -55,4 +55,4 @@ const AddTodoForm = (addTodo) => {
     )
 }
 
-export default AddTodo
+export default AddTodoForm
