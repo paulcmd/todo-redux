@@ -69,13 +69,13 @@ const IndecisionApp = () => {
                 setTodos(todos)
             }
         } catch (err) {
-            //if error, do nothing at all. fall back to default values
+            console.log('Local storage error : ', err)
         }
     }, [])
 
     useEffect(() => {
         const jsonTodos = JSON.stringify(todos)
-        localStorage.setItem('options', jsonTodos)
+        localStorage.setItem('todos', jsonTodos)
     }, [todos])
 
     useEffect(() => {
