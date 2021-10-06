@@ -5,37 +5,28 @@ import Header from './Header'
 import PickTodo from './PickTodo'
 import TodoList from './TodoList'
 import TodoModal from './TodoModal'
+import { addLocalTodos } from '../redux/todoSlice'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-const IndecisionApp = () => {
-    const todos = useSelector((state) => state.todos)
+const TodoApp = () => {
+
+    const stateTodos = useSelector((state) => state.todos)
+    
+    const dispatch = useDispatch()
+
+    const [todos, setTodos] = useState(stateTodos)
     const [selectedTodo, setSelectedTodo] = useState(null)
     const [incompleteTodos, setIncompleteTodos] = useState([])
-    console.log('Todos from Indecision : ', todos)
+    console.log('Todos from TodoApp : ', stateTodos)
+
 
     // const handleDeleteTodos = () => {
     //     setTodos([])
     // }
 
-    // const markComplete = (clickedTodoIndex) => {
-    //     const updatedTodos = todos.map((todo, index) => {
-    //         if (index === clickedTodoIndex) {
-    //             todo.completed = !todo.completed
-    //         }
-
-    //         return todo
-    //     })
-    //     console.log('updatedTodos : ', updatedTodos)
-    //     setTodos(updatedTodos)
-
-    //     /*
-    //     NB: After todo is flipped to completed, it is returned to todos array, else if todo was untouched, return it
-    //     */
-    // }
-
     const handleIncompleteTodos = () => {
-        const incompleteTodos = todos.filter((todo) => todo.completed === false)
+        const incompleteTodos = stateTodos.filter((todo) => todo.completed === false)
         setIncompleteTodos(incompleteTodos)
         console.log(
             'Incomplete todo from handleIncompleteTodos : ',
@@ -63,24 +54,27 @@ const IndecisionApp = () => {
 
     useEffect(() => {
         try {
-            const jsonTodos = localStorage.getItem('todos')
-            const todos = JSON.parse(jsonTodos)
-            if (todos) {
-                setTodos(todos)
-            }
+            const getTodos = window.localStorage.getItem('todos')
+            
+            const localTodos = JSON.parse(getTodos)
+            console.log('Parsed todos : ', localTodos)
+            // if (localTodos) {
+            //     console.log(dispatch(addLocalTodos(localTodos)))
+            // }
         } catch (err) {
             console.log('Local storage error : ', err)
         }
     }, [])
 
     useEffect(() => {
-        const jsonTodos = JSON.stringify(todos)
-        localStorage.setItem('todos', jsonTodos)
-    }, [todos])
+        const jsonTodos = JSON.stringify(stateTodos)
+        console.log('Stringified todos : ', jsonTodos)
+        window.localStorage.setItem('todos', jsonTodos)
+    }, [stateTodos])
 
     useEffect(() => {
         handleIncompleteTodos()
-    }, [todos])
+    }, [stateTodos])
     /* 
     use useeffect to listen to changes in todos. filter out incomplete todos and send to Action
     */
@@ -108,4 +102,4 @@ const IndecisionApp = () => {
     )
 }
 
-export default IndecisionApp
+export default TodoApp

@@ -11,6 +11,9 @@ const todoSlice = createSlice({
             }
             state.push(newTodo)
         },
+        addLocalTodos: (state, action) => {
+            state.push(action.payload)
+        },
         toggleComplete: (state, action) => {
             const index = state.findIndex(
                 (todo) => todo.id === action.payload.id
@@ -24,6 +27,6 @@ const todoSlice = createSlice({
     }
 })
 
-export const { addTodo, toggleComplete, deleteTodos } = todoSlice.actions
+export const { addTodo, toggleComplete, deleteTodos, addLocalTodos } = todoSlice.actions
 
 export default todoSlice.reducer
