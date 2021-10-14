@@ -4,12 +4,14 @@ const todoSlice = createSlice({
     initialState: [],
     reducers: {
         addTodo: (state, action) => {
-            const newTodo = {
-                id: Date.now(),
-                title: action.payload.title,
-                completed: false
+            if (action.payload.title !== '') {
+                const newTodo = {
+                    id: Date.now(),
+                    title: action.payload.title,
+                    completed: false
+                }
+                state.push(newTodo)
             }
-            state.push(newTodo)
         },
         addLocalTodos: (state, action) => {
             state.push(action.payload)
@@ -22,11 +24,15 @@ const todoSlice = createSlice({
             state[index].completed = action.payload.completed
         },
         deleteTodos: (state, action) => {
-            //    state.length = 0
+            //if action.type is deleteTodos, reset state to initialState
+            if (action.type === 'todos/deleteTodos') {
+                state.length = 0
+            }
         }
     }
 })
 
-export const { addTodo, toggleComplete, deleteTodos, addLocalTodos } = todoSlice.actions
+export const { addTodo, toggleComplete, deleteTodos, addLocalTodos } =
+    todoSlice.actions
 
 export default todoSlice.reducer

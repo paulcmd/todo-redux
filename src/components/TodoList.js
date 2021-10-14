@@ -4,17 +4,20 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteTodos } from '../redux/todoSlice'
 
 const TodoList = () => {
-
     const todos = useSelector((state) => state.todos)
     const dispatch = useDispatch()
     console.log('Todos from TodoList! : ', todos)
+
+    const onDeleteTodos = () => {
+       console.log('onDeleteTodos : ',dispatch(deleteTodos())) 
+    }
     return (
         <div>
             <div className="widget-header">
-                <h3 className="widget-header__title"> Your Options</h3>
+                <h3 className="widget-header__title"> Your Todos</h3>
                 <button
                     className="button button--link"
-                    onClick={() => dispatch(deleteTodos())}
+                    onClick={() => onDeleteTodos()}
                 >
                     Remove All
                 </button>
@@ -31,7 +34,6 @@ const TodoList = () => {
             ))}
         </div>
     )
-    
 }
 
 export default TodoList
